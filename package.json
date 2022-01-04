@@ -2,7 +2,7 @@
   "name": "viperdb",
   "version": "0.0.1",
   "description": "A simple data base in javascript",
-  "main": "index.js",
+  "main": "viperdb.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,10 @@
     "database",
     "viper"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lucas-Amantino/viperdb"
+  },
   "author": "Lucas Amantino",
   "license": "MIT",
   "dependencies": {
