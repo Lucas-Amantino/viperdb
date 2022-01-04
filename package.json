@@ -1,0 +1,20 @@
+{
+  "name": "viperdb",
+  "version": "0.0.1",
+  "description": "A simple data base in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "Database",
+    "db",
+    "viper"
+  ],
+  "author": "Lucas Amantino",
+  "license": "MIT",
+  "dependencies": {
+    "fsjs": "^0.0.6"
+  }
+}
