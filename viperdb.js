@@ -53,7 +53,6 @@ const viperdb = {
             fs.writeFileSync(dbpath+dbname+'.db', dbs);
         }
     },
-
     GetData : function (dbpath,dbname,tablename,datareq)
     {
         let path = dbpath+dbname+'.db';
@@ -78,7 +77,6 @@ const viperdb = {
             return dbs;
         }
     },
-
     GetTable : function (dbpath,dbname,tablename)
     {
         let path = dbpath+dbname+'.db';
@@ -103,7 +101,6 @@ const viperdb = {
             return dbs;
         }
     },
-
     RemoveTable : function (dbpath,dbname,tablename)
     {
         let path = dbpath+dbname+'.db';
@@ -126,7 +123,6 @@ const viperdb = {
             fs.writeFileSync(dbpath+dbname+'.db', db.replace(dbs,''));
         }
     },
-
     RemoveData : function (dbpath,dbname,tablename,datareq)
     {
         let path = dbpath+dbname+'.db';
@@ -157,10 +153,13 @@ const viperdb = {
             fs.writeFileSync(dbpath+dbname+'.db', dbs);
         }
     },
-
     RemovedataBase : function (dbpath,dbname)
     {
         fs.unlinkSync(dbpath+dbname+'.db');
+    },
+    FileExist: function (dbpath,dbname)
+    {
+        return fs.existsSync(dbpath+dbname+'.db');
     }
 }
 
