@@ -3,7 +3,7 @@ const fs = require('fs');
 const viperdb = {
     NewDataBase: function (dbpath,dbname)
     {
-        fs.writeFile(dbpath+dbname+'.db', '',(err)=>
+        fs.writeFile(dbpath+'/'+dbname+'.db', '',(err)=>
         {
             if(err)
             {
@@ -16,14 +16,14 @@ const viperdb = {
     },
     NewTable : function (dbpath,dbname,tablename)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path);
         tablename = tablename.replace(/\s+/g, '');
         fs.writeFileSync(path, db+'\n'+tablename+'[]');
     },
     AddData : function (dbpath,dbname,tablename,data)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path).toString();
         let dbs= '';
         tablename = tablename.replace(/\s+/g, '');
@@ -50,12 +50,12 @@ const viperdb = {
             {
                 dbs+=db[i];
             }
-            fs.writeFileSync(dbpath+dbname+'.db', dbs);
+            fs.writeFileSync(dbpath+'/'+dbname+'.db', dbs);
         }
     },
     GetData : function (dbpath,dbname,tablename,datareq)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path).toString();
         if(db.indexOf(tablename) == -1 || db.indexOf(datareq) == -1)
         {
@@ -79,7 +79,7 @@ const viperdb = {
     },
     GetTable : function (dbpath,dbname,tablename)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path).toString();
         if(db.indexOf(tablename) == -1)
         {
@@ -103,7 +103,7 @@ const viperdb = {
     },
     RemoveTable : function (dbpath,dbname,tablename)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path).toString();
         if(db.indexOf(tablename) == -1)
         {
@@ -120,12 +120,12 @@ const viperdb = {
                     break;
                 }
             }
-            fs.writeFileSync(dbpath+dbname+'.db', db.replace(dbs,''));
+            fs.writeFileSync(dbpath+'/'+dbname+'.db', db.replace(dbs,''));
         }
     },
     RemoveData : function (dbpath,dbname,tablename,datareq)
     {
-        let path = dbpath+dbname+'.db';
+        let path = dbpath+'/'+dbname+'.db';
         let db = fs.readFileSync(path).toString();
         if(db.indexOf(tablename) == -1 || db.indexOf(datareq) == -1)
         {
@@ -150,16 +150,16 @@ const viperdb = {
                     dbs += db[i];
                 }
             }
-            fs.writeFileSync(dbpath+dbname+'.db', dbs);
+            fs.writeFileSync(dbpath+'/'+dbname+'.db', dbs);
         }
     },
     RemovedataBase : function (dbpath,dbname)
     {
-        fs.unlinkSync(dbpath+dbname+'.db');
+        fs.unlinkSync(dbpath+'/'+dbname+'.db');
     },
     FileExist: function (dbpath,dbname)
     {
-        return fs.existsSync(dbpath+dbname+'.db');
+        return fs.existsSync(dbpath+'/'+dbname+'.db');
     }
 }
 
