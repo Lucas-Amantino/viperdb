@@ -128,21 +128,11 @@ The "FILEExist()" module returns a boolean, with it you can know if you have alr
 
 ```
 
-# Examples
+# Update Data
 
-This is a simple example of using viperdb to find out if a user has ever used the application.
+With the "DataUpdate()" module you can update the value of a data.
 
 ```javascript
-    const vp = require('viperdb');
-
-    var init = vp.GetData('./','knows','firsttime','know');
-
-    if(init == 'yes')
-    {
-        console.log('Hey, I know you!');
-    }else
-    {
-        console.log('You come here often?');
-        vp.AddData('./','knows','firsttime','{know:yes}')
-    }
+//                   dbpath /  dbname / table name/ data name / inner value;                             
+    viper.DataUpdate('./local','gameconfig','userdata','name','soul')
 ```

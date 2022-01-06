@@ -133,7 +133,7 @@ const viperdb = {
         }else
         {
             let dbs = '';
-            let reqpos = db.indexOf(datareq);
+            let reqpos = db.indexOf(datareq)-1;
             for(let i=0;i<reqpos;i++)
             {
                 dbs += db[i];
@@ -157,10 +157,14 @@ const viperdb = {
     {
         fs.unlinkSync(dbpath+'/'+dbname+'.db');
     },
+    DataUpdate:function (dbpath,dbname,tablename,dataname,innervalue)
+    {
+        this.RemoveData(dbpath,dbname,tablename,dataname);
+        this.AddData(dbpath,dbname,tablename,'{'+dataname+':'+innervalue+'}');
+    },
     FileExist: function (dbpath,dbname)
     {
         return fs.existsSync(dbpath+'/'+dbname+'.db');
     }
 }
-
 module.exports = viperdb
